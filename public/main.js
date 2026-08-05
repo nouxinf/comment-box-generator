@@ -1,7 +1,10 @@
 const textValue = () => document.getElementById("text").value;
 
-const banner = (text, width = 40) => {
-	if (text.length + 2 > 40) {
+const banner = (
+	text,
+	width = document.getElementById("minwidth").value || 40, // fallback to 40
+) => {
+	if (text.length + 2 > width) {
 		width = text.length + 6;
 	}
 	const outerLine = "# " + "=".repeat(width - 2);
