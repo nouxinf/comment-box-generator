@@ -10,12 +10,13 @@
 	</head>
 	<body>
 		<h1>Comment Box Generator</h1>
-		<form>
+		<form id="mainform">
 			<label>
 				Text
 				<input
 					id="text"
 					type="text"
+					name="text"
 				/>
 			</label>
 			<label>
@@ -23,17 +24,41 @@
 				<input
 					id="minwidth"
 					type="number"
+					name="minwidth"
 					value="40"
 				/>
 			</label>
 			<label>
 				Comment type
-				<select id="commenttype">
+				<select
+					name="commenttype"
+					id="commenttype"
+				>
 					<option value="python">Python/Bash (#)</option>
 					<option value="c">C/JavaScript (//)</option>
 					<option value="sql">SQL/Lua (--)</option>
 					<option value="asm">Assembly (;)</option>
 				</select>
+			</label>
+			<label>
+				Multiline? (required for some languages)
+				<label
+					>Yes
+					<input
+						type="radio"
+						name="ismultiline"
+						value="yes"
+					/>
+				</label>
+				<label
+					>No
+					<input
+						type="radio"
+						name="ismultiline"
+						value="no"
+						checked
+					/>
+				</label>
 			</label>
 			<input
 				id="submit"

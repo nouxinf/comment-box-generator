@@ -1,9 +1,10 @@
-const textValue = () => document.getElementById("text").value;
+// const textValue = () => document.getElementById("text").value;
 
 const banner = (
 	text,
-	width = document.getElementById("minwidth").value || 40, // fallback to 40
-	commentType = document.getElementById("commenttype").value || "python",
+	width = 40, // fallback to 40
+	commentType = "python",
+	isMultiline = false,
 ) => {
 	if (text.length + 2 > width) {
 		width = text.length + 6;
@@ -26,7 +27,14 @@ const banner = (
 	return `${outerLine}\n${middleLine}\n${outerLine}`;
 };
 
-document.getElementById("submit").addEventListener("click", (event) => {
+document.getElementById("mainform").addEventListener("submit", (event) => {
 	event.preventDefault(); // this prevents pressing submit from refreshing the page
-	document.getElementById("output").value = banner(textValue());
+	const data = new FormData(document.getElementById("mainform"));
+	console.log(data);
+	document.getElementById("output").value = banner(
+		data.get("text"),
+		data.get("minwidth"),
+		data.get("commenttype"),
+		data.get("ismultiline") === "yes",
+	);
 });
