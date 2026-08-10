@@ -10,7 +10,10 @@
 	</head>
 	<body>
 		<h1>Comment Box Generator</h1>
-		<form id="mainform">
+		<form
+			id="mainform"
+			autocomplete="off"
+		>
 			<label>
 				Text
 				<input
@@ -36,8 +39,9 @@
 				>
 					<option value="python">Python/Bash (#)</option>
 					<option value="c">C/JavaScript (//)</option>
-					<option value="sql">SQL/Lua (--)</option>
+					<option value="sql">SQL (--)</option>
 					<option value="asm">Assembly (;)</option>
+					<option value="html">HTML (&lt;!-- --&gt;)</option>
 				</select>
 			</label>
 			<label>
@@ -60,6 +64,16 @@
 					/>
 				</label>
 			</label>
+			<label>
+				Box Symbol
+				<input
+					type="text"
+					maxlength="1"
+					id="boxsymbol"
+					name="boxsymbol"
+					value="="
+				/>
+			</label>
 			<input
 				id="submit"
 				type="submit"
@@ -71,7 +85,10 @@
 			id="output"
 			readonly
 			cols="60"
-			rows="4"
+			rows="5"
+			placeholder="# ======================================
+# =          HELPER FUNCTIONS          =
+# ======================================"
 		>
 		</textarea>
 		<script src="main.js"></script>

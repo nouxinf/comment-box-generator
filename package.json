@@ -1,22 +1,25 @@
 {
-  "name": "comment-box-generator",
-  "version": "1.0.0",
-  "description": "A simple web tool to generate comment boxes for various programming languages",
-  "main": "server.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/nouxinf/comment-box-generator.git"
-  },
-  "author": "nouxinf",
-  "license": "Unlicense",
-  "bugs": {
-    "url": "https://github.com/nouxinf/comment-box-generator/issues"
-  },
-  "homepage": "https://github.com/nouxinf/comment-box-generator#readme",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+	"name": "comment-box-generator",
+	"version": "1.0.0",
+	"description": "A simple web tool to generate comment boxes for various programming languages",
+	"main": "server.js",
+	"scripts": {
+		"build": "bun run build.js",
+		"deploy": "bun run build.js && bun server.js dist",
+		"vps": "./vps.sh",
+		"dev": "bun --port=3054 src/index.html"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/nouxinf/comment-box-generator.git"
+	},
+	"author": "nouxinf",
+	"license": "Unlicense",
+	"bugs": {
+		"url": "https://github.com/nouxinf/comment-box-generator/issues"
+	},
+	"homepage": "https://github.com/nouxinf/comment-box-generator#readme",
+	"devDependencies": {
+		"html-minifier-terser": "^7.2.0"
+	}
 }
