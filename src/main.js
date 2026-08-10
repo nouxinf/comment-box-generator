@@ -28,7 +28,7 @@ const banner = (
 		["sql", "*/"],
 		["python", `"""`],
 	]);
-	if (!isMultiline) {
+	if (!isMultiline && commentType != "html") {
 		const commentChar = langMap.get(commentType);
 		const outerLine = `${commentChar} ` + `${boxSymbol}`.repeat(width - 2);
 		const innerSpace = width - 4;
