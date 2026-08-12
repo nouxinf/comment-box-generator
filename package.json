@@ -20,6 +20,8 @@
 	},
 	"homepage": "https://github.com/nouxinf/comment-box-generator#readme",
 	"devDependencies": {
-		"html-minifier-terser": "^7.2.0"
+		"html-minifier-terser": "^7.2.0",
+		"lightningcss": "^1.33.0",
+		"subset-font": "^2.5.0"
 	}
 }

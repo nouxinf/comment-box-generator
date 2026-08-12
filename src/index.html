@@ -7,6 +7,10 @@
 			content="width=device-width, initial-scale=1.0"
 		/>
 		<title>Comment Box Generator</title>
+		<link
+			rel="stylesheet"
+			href="styles.css"
+		/>
 	</head>
 	<body>
 		<h1>Comment Box Generator</h1>
@@ -91,6 +95,36 @@
 # ======================================"
 		>
 		</textarea>
+		<!-- temp - gonna be replaced soon-->
+		<fieldset id="colorScheme">
+			<label>
+				<input
+					type="radio"
+					name="color-scheme"
+					id="color-scheme-light"
+					value="0"
+				/>
+				Light
+			</label>
+			<label>
+				<input
+					type="radio"
+					name="color-scheme"
+					value="auto"
+					checked
+				/>
+				Auto
+			</label>
+			<label>
+				<input
+					type="radio"
+					name="color-scheme"
+					id="color-scheme-dark"
+					value="1"
+				/>
+				Dark
+			</label>
+		</fieldset>
 		<script src="main.js"></script>
 	</body>
 </html>

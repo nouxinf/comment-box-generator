@@ -1,0 +1,71 @@
+@font-face {
+	font-family: stackSans;
+	src: url(assets/fonts/StackSansText-VariableFont_wght.ttf);
+}
+
+@font-face {
+	font-family: robotoMono;
+	src: url(assets/fonts/RobotoMono-VariableFont_wght.ttf);
+}
+
+* {
+	font-family: stackSans, Arial, sans-serif;
+}
+
+:where(body) {
+	--background-color: #fff;
+	--text-color: #222;
+	--accent: #4f4f4f;
+}
+
+:root {
+	color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		color-scheme: dark;
+	}
+}
+
+body {
+	background-color: var(--background-color);
+	color: var(--text-color);
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not(:has(#color-scheme-light:checked)):not(
+			:has(#color-scheme-dark:checked)
+		)
+		body {
+		--background-color: hsl(228, 5%, 15%);
+		--text-color: hsl(228, 5%, 80%);
+	}
+}
+
+html:has(#color-scheme-dark:checked) body {
+	--background-color: hsl(228, 5%, 15%);
+	--text-color: hsl(228, 5%, 80%);
+}
+
+html:has(#color-scheme-light:checked) body {
+	--background-color: #fff;
+	--text-color: #222;
+}
+
+input,
+textarea,
+select {
+	border-radius: 10px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+	outline: 2px solid var(--accent);
+	outline-offset: 2px;
+}
+
+textarea {
+	font-family: robotoMono, monospace;
+}

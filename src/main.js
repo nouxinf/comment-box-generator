@@ -70,3 +70,19 @@ document.getElementById("mainform").addEventListener("submit", (event) => {
 window.addEventListener("pageshow", () => {
 	document.getElementById("output").value = "";
 });
+
+const colorScheme = document.getElementById("colorScheme");
+colorScheme.addEventListener("change", (event) => {
+	localStorage.setItem("color-scheme", event.target.value);
+});
+
+window.addEventListener("load", (event) => {
+	const scheme = localStorage.getItem("color-scheme") || "auto";
+	if (scheme) {
+		document.documentElement.style.setProperty("--darkmode", scheme);
+		const selected = [...colorScheme.elements].filter(
+			(element) => element.value === scheme,
+		);
+		if (selected) selected[0].checked = true;
+	}
+});
