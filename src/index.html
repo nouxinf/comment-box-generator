@@ -13,88 +13,91 @@
 		/>
 	</head>
 	<body>
-		<h1>Comment Box Generator</h1>
-		<form
-			id="mainform"
-			autocomplete="off"
-		>
-			<label>
-				Text
-				<input
-					id="text"
-					type="text"
-					name="text"
-				/>
-			</label>
-			<label>
-				Minimum width
-				<input
-					id="minwidth"
-					type="number"
-					name="minwidth"
-					value="40"
-				/>
-			</label>
-			<label>
-				Comment type
-				<select
-					name="commenttype"
-					id="commenttype"
-				>
-					<option value="python">Python/Bash (#)</option>
-					<option value="c">C/JavaScript (//)</option>
-					<option value="sql">SQL (--)</option>
-					<option value="asm">Assembly (;)</option>
-					<option value="html">HTML (&lt;!-- --&gt;)</option>
-				</select>
-			</label>
-			<label>
-				Multiline? (required for some languages)
-				<label
-					>Yes
+		<div id="main">
+			<h1>Comment Box Generator</h1>
+			<form
+				id="mainform"
+				autocomplete="off"
+			>
+				<label>
+					Text
 					<input
-						type="radio"
-						name="ismultiline"
-						value="yes"
+						id="text"
+						type="text"
+						name="text"
 					/>
 				</label>
-				<label
-					>No
+				<label>
+					Minimum width
 					<input
-						type="radio"
-						name="ismultiline"
-						value="no"
-						checked
+						id="minwidth"
+						type="number"
+						name="minwidth"
+						value="40"
 					/>
 				</label>
-			</label>
-			<label>
-				Box Symbol
-				<select
-					name="boxsymbol"
-					id="boxsymbol"
-				>
-					<option value="parallel">Parallel lines</option>
-					<option value="equals">Equals signs</option>
-				</select>
-			</label>
-			<input
-				id="submit"
-				type="submit"
-				value="Submit"
-			/>
-		</form>
-		<p>Output:</p>
-		<textarea
-			id="output"
-			readonly
-			cols="60"
-			rows="5"
-			placeholder="# ======================================
-# =          HELPER FUNCTIONS          =
-# ======================================"
-		>
-		</textarea>
+				<label>
+					Comment type
+					<select
+						name="commenttype"
+						id="commenttype"
+					>
+						<option value="python">Python/Bash (#)</option>
+						<option value="c">C/JavaScript (//)</option>
+						<option value="sql">SQL (--)</option>
+						<option value="asm">Assembly (;)</option>
+						<option value="html">HTML (&lt;!-- --&gt;)</option>
+					</select>
+				</label>
+				<label>
+					Multiline? (required for some languages)
+					<label
+						>Yes
+						<input
+							type="radio"
+							name="ismultiline"
+							value="yes"
+						/>
+					</label>
+					<label
+						>No
+						<input
+							type="radio"
+							name="ismultiline"
+							value="no"
+							checked
+						/>
+					</label>
+				</label>
+				<label>
+					Box Symbol
+					<select
+						name="boxsymbol"
+						id="boxsymbol"
+					>
+						<option value="parallel">Parallel lines</option>
+						<option value="equals">Equals signs</option>
+					</select>
+				</label>
+				<input
+					id="submit"
+					type="submit"
+					value="Submit"
+				/>
+			</form>
+			<p>Output:</p>
+			<textarea
+				id="output"
+				readonly
+				cols="50"
+				rows="5"
+				placeholder="// ╔════════════════════════════════════╗
+// ║              EXAMPLE               ║
+// ╚════════════════════════════════════╝"
+			>
+			</textarea>
+		</div>
+
 		<!-- temp - gonna be replaced soon-->
 		<fieldset id="colorScheme">
 			<label>
@@ -103,8 +106,12 @@
 					name="color-scheme"
 					id="color-scheme-light"
 					value="0"
+					class="radio-toprightbutton"
 				/>
-				Light
+				<img
+					class="toprighticon"
+					src="assets/ico/sun.svg"
+				/>
 			</label>
 			<label>
 				<input
@@ -112,8 +119,13 @@
 					name="color-scheme"
 					value="auto"
 					checked
+					class="radio-toprightbutton"
 				/>
-				Auto
+				<img
+					class="toprighticon"
+					src="assets/ico/computer.svg"
+					alt="Automatic light/dark mode"
+				/>
 			</label>
 			<label>
 				<input
@@ -121,8 +133,13 @@
 					name="color-scheme"
 					id="color-scheme-dark"
 					value="1"
+					class="radio-toprightbutton"
 				/>
-				Dark
+				<img
+					class="toprighticon"
+					src="assets/ico/moon.svg"
+					alt="Dark mode"
+				/>
 			</label>
 		</fieldset>
 		<script src="main.js"></script>

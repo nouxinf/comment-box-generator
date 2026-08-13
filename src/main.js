@@ -77,15 +77,20 @@ const banner = (
 	} else {
 		const firstCommentChar = startingMultilineLangMap.get(commentType);
 		const lastCommentChar = endingMultilineLangMap.get(commentType);
-		const outerLine = `${boxSymbol}`.repeat(width - 2);
+		const topLine =
+			`${topLeftSym}` + `${topSym}`.repeat(width - 4) + `${topRightSym}`;
+		const bottomLine =
+			`${bottomLeftSym}` +
+			`${topSym}`.repeat(width - 4) +
+			`${bottomRightSym}`;
 		const innerSpace = width - 4;
 
 		const paddedText = ` ${text} `
 			.padStart(Math.floor((innerSpace + text.length + 2) / 2), " ")
 			.padEnd(innerSpace, " ");
 
-		const middleLine = `${boxSymbol}${paddedText}${boxSymbol}`;
-		return `${firstCommentChar}\n${outerLine}\n${middleLine}\n${outerLine}\n${lastCommentChar}`;
+		const middleLine = `${leftSym}${paddedText}${rightSym}`;
+		return `${firstCommentChar}\n${topLine}\n${middleLine}\n${bottomLine}\n${lastCommentChar}`;
 	}
 };
 
