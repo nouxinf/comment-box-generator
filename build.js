@@ -18,10 +18,6 @@ const htmlFiles = [];
 const assetFiles = [];
 const fontSubsets = new Map([
 	[
-		"assets/fonts/RobotoMono-VariableFont_wght.ttf",
-		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,!?;:'\"-()#=",
-	],
-	[
 		"assets/fonts/StackSansText-VariableFont_wght.ttf",
 		"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789 .,!?;:'\"-()#=",
 	],

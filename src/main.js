@@ -1,3 +1,12 @@
+let symbols;
+let leftSym;
+let topLeftSym;
+let topSym;
+let topRightSym;
+let rightSym;
+let bottomRightSym;
+let bottomSym;
+let bottomLeftSym;
 const banner = (
 	text,
 	width = 40, // fallback to 40
@@ -28,17 +37,43 @@ const banner = (
 		["sql", "*/"],
 		["python", `"""`],
 	]);
+	/*
+	Order for linesMap should be:
+	left, top left corner, top, top right corner, right, bottom right corner, bottom, bottom left corner
+	*/
+	const linesMap = new Map([
+		["parallel", "║╔═╗║╝═╚"],
+		["equals", "========"],
+	]);
+	symbols = linesMap.get(boxSymbol);
+	leftSym = symbols.charAt(0);
+	topLeftSym = symbols.charAt(1);
+	topSym = symbols.charAt(2);
+	topRightSym = symbols.charAt(3);
+	rightSym = symbols.charAt(4);
+	bottomRightSym = symbols.charAt(5);
+	bottomSym = symbols.charAt(6);
+	bottomLeftSym = symbols.charAt(7);
 	if (!isMultiline && commentType != "html") {
 		const commentChar = langMap.get(commentType);
-		const outerLine = `${commentChar} ` + `${boxSymbol}`.repeat(width - 2);
+		const topLine =
+			`${commentChar} ` +
+			`${topLeftSym}` +
+			`${topSym}`.repeat(width - 4) +
+			`${topRightSym}`;
+		const bottomLine =
+			`${commentChar} ` +
+			`${bottomLeftSym}` +
+			`${topSym}`.repeat(width - 4) +
+			`${bottomRightSym}`;
 		const innerSpace = width - 4;
 
 		const paddedText = ` ${text} `
 			.padStart(Math.floor((innerSpace + text.length + 2) / 2), " ")
 			.padEnd(innerSpace, " ");
 
-		const middleLine = `${commentChar} ${boxSymbol}${paddedText}${boxSymbol}`;
-		return `${outerLine}\n${middleLine}\n${outerLine}`;
+		const middleLine = `${commentChar} ${leftSym}${paddedText}${rightSym}`;
+		return `${topLine}\n${middleLine}\n${bottomLine}`;
 	} else {
 		const firstCommentChar = startingMultilineLangMap.get(commentType);
 		const lastCommentChar = endingMultilineLangMap.get(commentType);
