@@ -44,6 +44,15 @@ const banner = (
 	const linesMap = new Map([
 		["parallel", "║╔═╗║╝═╚"],
 		["equals", "========"],
+		["solid", "│┌─┐│┘─└"],
+		["thick", "┃┏━┓┃┛━┗"],
+		["arc", "│╭─╮│╯─╰"],
+		["crosses", "╳╳╳╳╳╳╳╳"],
+		["x", "XXXXXXXX"],
+		["boxes", "████████"],
+		["lightshade", "░░░░░░░░"],
+		["midshade", "▒▒▒▒▒▒▒▒"],
+		["darkshade", "▓▓▓▓▓▓▓▓"],
 	]);
 	symbols = linesMap.get(boxSymbol);
 	leftSym = symbols.charAt(0);
