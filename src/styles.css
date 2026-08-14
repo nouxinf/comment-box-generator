@@ -56,6 +56,7 @@ input,
 textarea,
 select {
 	border-radius: 10px;
+	background-color: var(--background-color);
 }
 
 input:focus,
@@ -105,14 +106,29 @@ form label {
 	border-left: var(--text-color) solid 2px;
 	border-bottom: var(--text-color) solid 2px;
 	border-bottom-left-radius: 5px;
+	background-color: var(--background-color);
+	margin-right: 0;
 }
 
 .toprighticon {
 	height: 2rem;
+	width: 2rem;
 	filter: var(--icon-filter);
 	cursor: pointer;
+	padding: 3px 3px 3px 3px;
+	display: block;
 }
 
 input[type="radio"][class="radio-toprightbutton"] {
 	display: none;
+}
+
+#sociallinks {
+	border-top: solid 1px var(--text-color);
+	text-decoration: none;
+}
+
+dialog {
+	background-color: var(--background-color);
+	color: var(--text-color);
 }

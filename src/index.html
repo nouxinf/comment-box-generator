@@ -97,8 +97,6 @@
 			>
 			</textarea>
 		</div>
-
-		<!-- temp - gonna be replaced soon-->
 		<fieldset id="colorScheme">
 			<label>
 				<input
@@ -141,7 +139,46 @@
 					alt="Dark mode"
 				/>
 			</label>
+			<div id="sociallinks">
+				<a
+					href="https://github.com/nouxinf/comment-box-generator"
+					target="_blank"
+					><img
+						class="toprighticon"
+						src="assets/ico/github.svg"
+					/>
+				</a>
+				<a
+					href="https://stardance.hackclub.com/projects/44282"
+					target="_blank"
+				>
+					<img
+						class="toprighticon"
+						src="assets/ico/hackclub.svg"
+					/>
+				</a>
+				<a
+					href="javascript:document.getElementById('infodialog').showModal()"
+				>
+					<img
+						class="toprighticon"
+						src="assets/ico/info.svg"
+					/>
+				</a>
+			</div>
 		</fieldset>
+		<dialog
+			id="infodialog"
+			closedby="any"
+		>
+			<h2>About</h2>
+			<p>
+				Comment Box Generator is a tool that lets you generate comment
+				boxes for various programming languages.
+			</p>
+			<h3>Attribution</h3>
+			<p>SVG icons by Fontawesome</p>
+		</dialog>
 		<script src="main.js"></script>
 	</body>
 </html>
