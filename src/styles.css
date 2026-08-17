@@ -7,10 +7,18 @@
 	font-family: stackSans, Arial, sans-serif;
 }
 
+#main {
+	overflow: clip;
+}
+
+#main::-webkit-scrollbar {
+	display: none;
+}
+
 :where(body) {
 	--background-color: #fff;
 	--text-color: #222;
-	--accent: #4f4f4f;
+	--accent: #696969;
 	--icon-filter: none;
 }
 
@@ -37,6 +45,7 @@ body {
 		--background-color: hsl(228, 5%, 15%);
 		--text-color: hsl(228, 5%, 80%);
 		--icon-filter: invert(1);
+		--accent: #525252;
 	}
 }
 
@@ -44,12 +53,14 @@ html:has(#color-scheme-dark:checked) body {
 	--background-color: hsl(228, 5%, 15%);
 	--text-color: hsl(228, 5%, 80%);
 	--icon-filter: invert(1);
+	--accent: #525252;
 }
 
 html:has(#color-scheme-light:checked) body {
 	--background-color: #fff;
 	--text-color: #222;
 	--icon-filter: none;
+	--accent: #d0d0d0;
 }
 
 input,
@@ -57,6 +68,7 @@ textarea,
 select {
 	border-radius: 10px;
 	background-color: var(--background-color);
+	color: var(--text-color);
 }
 
 input:focus,
@@ -131,4 +143,131 @@ input[type="radio"][class="radio-toprightbutton"] {
 dialog {
 	background-color: var(--background-color);
 	color: var(--text-color);
+	border: none;
+	padding: 1.5rem;
+	border-radius: 0.5rem;
+}
+
+dialog[open] {
+	animation: dialog-appear 0.4s both;
+}
+
+dialog[open].closing {
+	animation: dialog-disappear 0.4s both;
+}
+
+dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+}
+
+dialog[open]::backdrop {
+	animation: backdrop-appear 0.4s both;
+}
+
+dialog[open].closing::backdrop {
+	animation: backdrop-disappear 0.4s both;
+}
+
+@keyframes dialog-appear {
+	from {
+		opacity: 0;
+		transform: scale(0.05);
+	}
+	to {
+		opacity: 1;
+		transform: scale(1);
+	}
+}
+
+@keyframes dialog-disappear {
+	from {
+		opacity: 1;
+		transform: scale(1);
+	}
+	to {
+		opacity: 0;
+		transform: scale(0.05);
+	}
+}
+
+@keyframes backdrop-appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes backdrop-disappear {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+.dialog-close {
+	position: absolute;
+	top: 0.75rem;
+	right: 0.75rem;
+	display: grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	padding: 0;
+	border: none;
+	border-radius: 50%;
+	background: transparent;
+	color: var(--text-color);
+	font-size: 1.25rem;
+	line-height: 1;
+	cursor: pointer;
+	transition:
+		background-color 0.2s,
+		transform 0.2s;
+}
+
+.dialog-close:hover {
+	background-color: rgba(128, 128, 128, 0.2);
+	transform: scale(1.1);
+}
+
+.dialog-close:active {
+	transform: scale(0.95);
+}
+
+#outputwrapper {
+	width: fit-content;
+	border: solid 3px var(--accent);
+	background-color: var(--background-color);
+	display: flex;
+	flex-direction: column;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+#toptextandcopybutton {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	padding: 2px;
+}
+
+#copybtn {
+	margin-left: auto;
+	cursor: pointer;
+	align-items: center;
+	background-color: var(--background-color);
+	border-radius: 0.2rem;
+}
+
+#copybtn:hover {
+	background-color: var(--accent);
+}
+
+#copybtn img {
+	width: 1rem;
+	filter: var(--icon-filter);
 }

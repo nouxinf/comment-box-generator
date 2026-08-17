@@ -135,3 +135,49 @@ window.addEventListener("load", (event) => {
 		if (selected) selected[0].checked = true;
 	}
 });
+
+const copyBtn = document.getElementById("copybtn");
+const copyIco = document.getElementById("copyico");
+copyBtn.addEventListener("click", () => {
+	navigator.clipboard.writeText(document.getElementById("output").value).then(
+		() => {
+			console.log("Copied to clipboard successfully");
+		},
+		(err) => {
+			console.error(`Couldnt copy text: ${err}`);
+		},
+	);
+	copyIco.src = "assets/ico/tick.svg";
+	setTimeout(() => {
+		copyIco.src = "assets/ico/copy.svg";
+	}, 1500);
+});
+
+const dialog = document.querySelector("dialog");
+const closeBtn = document.querySelector(".dialog-close");
+
+function closeDialog() {
+	if (dialog.classList.contains("closing")) return;
+
+	dialog.classList.add("closing");
+
+	function onEnd(e) {
+		if (e.target !== dialog) return;
+		dialog.removeEventListener("animationend", onEnd);
+		dialog.classList.remove("closing");
+		dialog.close();
+	}
+
+	dialog.addEventListener("animationend", onEnd);
+}
+
+closeBtn.addEventListener("click", closeDialog);
+
+dialog.addEventListener("cancel", (e) => {
+	e.preventDefault();
+	closeDialog();
+});
+
+dialog.addEventListener("click", (e) => {
+	if (e.target === dialog) closeDialog();
+});

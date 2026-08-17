@@ -127,17 +127,27 @@
 					value="Submit"
 				/>
 			</form>
-			<p>Output:</p>
-			<textarea
-				id="output"
-				readonly
-				cols="50"
-				rows="5"
-				placeholder="// ╔════════════════════════════════════╗
+			<div id="outputwrapper">
+				<div id="toptextandcopybutton">
+					<span>Output:</span>
+					<button id="copybtn">
+						<img
+							id="copyico"
+							src="assets/ico/copy.svg"
+						/>
+					</button>
+				</div>
+				<textarea
+					id="output"
+					readonly
+					cols="50"
+					rows="5"
+					placeholder="// ╔════════════════════════════════════╗
 // ║              EXAMPLE               ║
 // ╚════════════════════════════════════╝"
-			>
-			</textarea>
+				>
+				</textarea>
+			</div>
 		</div>
 		<fieldset id="colorScheme">
 			<label>
@@ -220,6 +230,13 @@
 			</p>
 			<h3>Attribution</h3>
 			<p>SVG icons by Fontawesome</p>
+			<button
+				class="dialog-close"
+				type="button"
+				aria-label="Close dialog"
+			>
+				✕
+			</button>
 		</dialog>
 		<script src="main.js"></script>
 	</body>
