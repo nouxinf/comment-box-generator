@@ -3,6 +3,11 @@
 	src: url(assets/fonts/StackSansText-VariableFont_wght.ttf);
 }
 
+@font-face {
+	font-family: liberationMono;
+	src: url(assets/fonts/LiberationMono-Regular.ttf);
+}
+
 * {
 	font-family: stackSans, Arial, sans-serif;
 }
@@ -79,7 +84,7 @@ select:focus {
 }
 
 textarea {
-	font-family: monospace;
+	font-family: liberationMono, monospace;
 	background: var(--background-color);
 }
 
