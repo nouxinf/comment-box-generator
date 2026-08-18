@@ -6,8 +6,7 @@
 	"scripts": {
 		"build": "bun run build.js",
 		"deploy": "bun run build.js && bun server.js dist",
-		"vps": "./vps.sh",
-		"dev": "bun --port=3054 src/index.html"
+		"vps": "./vps.sh"
 	},
 	"repository": {
 		"type": "git",
