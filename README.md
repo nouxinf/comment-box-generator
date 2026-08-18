@@ -12,6 +12,8 @@
 
 You can try it out at <a href="https://commentboxgenerator.lemonsite.uk/" target="_blank">commentboxgenerator.lemonsite.uk</a>.
 
+It has several customisation features, like changing the programming language, minimum width, whether the comment should be multiline (as in `//` or `/**/`) and what symbol should be used for the box.
+
 ## Screenshots
 
 ![](img/scr1.png)
